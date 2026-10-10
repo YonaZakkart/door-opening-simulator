@@ -1,21 +1,78 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>开门模拟器</title>
+    <title>开门模拟器 🚪 - 最好的开门网站!!!</title>
     <link rel="stylesheet" href="样式.css">
 </head>
-
 <body>
-    <div class="容器">
-        <header class="头部">
-            <h1>开门模拟器</h1>
-            <p class="副标题">你只是想开个门。就这么简单。</p>
-        </header>
 
+    <!-- ========== BARRA SUPERIOR MEGA SATURADA ========== -->
+    <div class="顶部横幅">
+        <marquee scrollamount="8" behavior="alternate">
+            🎉🎉🎉 欢迎来到 开门模拟器!!! 全宇宙最好的开门网站!!! 现在注册就送 100 个门!!! 🎉🎉🎉
+        </marquee>
+    </div>
+
+    <!-- ========== HEADER CON LOGO Y IDIOMAS ========== -->
+    <header class="头部">
+        <div class="logo区">
+            <span class="logo">🚪</span>
+            <div>
+                <h1 data-i18n="titulo">开门模拟器</h1>
+                <p class="副标题" data-i18n="subtitulo">你只是想开个门。就这么简单。</p>
+            </div>
+        </div>
+
+        <div class="idiomas">
+            <button class="语言按钮" data-lang="zh">🇨🇳 中文</button>
+            <button class="语言按钮" data-lang="es">🇪🇸 Español</button>
+            <button class="语言按钮" data-lang="en">🇬🇧 English</button>
+        </div>
+    </header>
+
+    <!-- ========== BANNER PUBLICITARIO 1 ========== -->
+    <div class="广告横幅 广告1">
+        <span class="广告文字" data-i18n="anuncio1">💰 你赢了 100 万!!! 点击领取!!!</span>
+        <button class="广告按钮" onclick="noHaceNada()" data-i18n="reclamar">立即领取</button>
+    </div>
+
+    <!-- ========== LAYOUT PRINCIPAL (3 COLUMNAS) ========== -->
+    <div class="主布局">
+
+        <!-- ----- COLUMNA IZQUIERDA: anuncios ----- -->
+        <aside class="侧边栏 左栏">
+            <div class="小广告 闪烁">
+                <p data-i18n="anuncioL1">🔥 热水!!!</p>
+                <p class="小字">100°C · 包邮</p>
+            </div>
+            <div class="小广告">
+                <p data-i18n="anuncioL2">🥢 筷子 50% OFF</p>
+                <p class="小字" data-i18n="anuncioL2b">买一送一!!!</p>
+            </div>
+            <div class="小广告 闪烁">
+                <p data-i18n="anuncioL3">🐱 会编程的猫</p>
+                <p class="小字" data-i18n="anuncioL3b">月薪 5000 起</p>
+            </div>
+        </aside>
+
+        <!-- ----- COLUMNA CENTRAL: LA PUERTA ----- -->
         <main class="主区域">
+
+            <!-- Contador de visitas ridículo -->
+            <div class="访客计数器">
+                <span data-i18n="visitas">你是第</span>
+                <span class="数字" id="访客数">999999</span>
+                <span data-i18n="visitasFin">位访客!!!</span>
+            </div>
+
+            <!-- Reloj random -->
+            <div class="随机时钟" id="随机时钟">
+                🕐 --:--:--
+            </div>
+
+            <!-- LA PUERTA -->
             <div class="门框">
                 <div class="门" id="门">
                     <div class="门把手"></div>
@@ -23,20 +80,80 @@
                 </div>
             </div>
 
-            <button class="开门按钮" id="开门按钮">
+            <button class="开门按钮" id="开门按钮" data-i18n="botonAbrir">
                 🚪 点击开门
             </button>
 
-            <p class="提示" id="提示">门就在那里。它在等你。</p>
+            <p class="提示" id="提示" data-i18n="pista">门就在那里。它在等你。</p>
+
         </main>
 
-        <footer class="底部">
-            <p>© 2025 开门模拟器 · 筷子许可证 🥢</p>
-            <p class="警告">⚠️ 开门可能需要 3-7 个工作日</p>
-        </footer>
+        <!-- ----- COLUMNA DERECHA: más mierda ----- -->
+        <aside class="侧边栏 右栏">
+            <div class="小广告 闪烁">
+                <p data-i18n="anuncioR1">📢 订阅我们的</p>
+                <p class="小字" data-i18n="anuncioR1b">超级无敌新闻</p>
+            </div>
+            <div class="小广告">
+                <p data-i18n="anuncioR2">🐟 鱼</p>
+                <p class="小字" data-i18n="anuncioR2b">新鲜 · 会游泳</p>
+            </div>
+            <div class="小广告 闪烁">
+                <p data-i18n="anuncioR3">🎁 免费礼物</p>
+                <p class="小字" data-i18n="anuncioR3b">只限今天!!!</p>
+            </div>
+        </aside>
+
+    </div>
+
+    <!-- ========== BARRA DE BOTONES RANDOM ========== -->
+    <div class="按钮群">
+        <button class="随机按钮" onclick="noHaceNada()" data-i18n="btn1">点击这里</button>
+        <button class="随机按钮" onclick="noHaceNada()" data-i18n="btn2">不要点击</button>
+        <button class="随机按钮" onclick="noHaceNada()" data-i18n="btn3">秘密按钮</button>
+        <button class="随机按钮" onclick="noHaceNada()" data-i18n="btn4">点我</button>
+        <button class="随机按钮" onclick="noHaceNada()" data-i18n="btn5">免费WiFi</button>
+        <button class="随机按钮" onclick="noHaceNada()" data-i18n="btn6">不要点我</button>
+        <button class="随机按钮" onclick="noHaceNada()" data-i18n="btn7">重要!!!</button>
+        <button class="随机按钮" onclick="noHaceNada()" data-i18n="btn8">了解更多</button>
+    </div>
+
+    <!-- ========== FOOTER SATURADO ========== -->
+    <footer class="底部">
+        <div class="footer链接">
+            <a href="#" onclick="noHaceNada(); return false;" data-i18n="footer1">关于我们</a>
+            <a href="#" onclick="noHaceNada(); return false;" data-i18n="footer2">联系方式</a>
+            <a href="#" onclick="noHaceNada(); return false;" data-i18n="footer3">隐私政策</a>
+            <a href="#" onclick="noHaceNada(); return false;" data-i18n="footer4">服务条款</a>
+            <a href="#" onclick="noHaceNada(); return false;" data-i18n="footer5">加入我们</a>
+        </div>
+        <p class="版权" data-i18n="copyright">© 2025 开门模拟器 · 筷子许可证 🥢 · 版权所有 (但我们也不知道版权是什么)</p>
+        <p class="警告" data-i18n="aviso">⚠️ 开门可能需要 3-7 个工作日</p>
+        <p class="小鱼">🐟 <span data-i18n="pez">一条鱼正在看着你</span> 🐟</p>
+    </footer>
+
+    <!-- ========== POPUPS ALEATORIOS (ocultos por defecto) ========== -->
+    <div class="弹出广告" id="弹出广告">
+        <button class="关闭按钮" onclick="cerrarPopup()">✕</button>
+        <h3 data-i18n="popupTitulo">🎉 恭喜你!!!</h3>
+        <p data-i18n="popupTexto">你中了 100 万!!! 但需要先开门。</p>
+        <button class="弹出按钮" onclick="cerrarPopup()" data-i18n="popupBtn">好的好的</button>
+    </div>
+
+    <!-- ========== CHAT DE SOPORTE ========== -->
+    <div class="chatSoporte" id="chatSoporte">
+        <div class="chatHeader">
+            <span>💬 <span data-i18n="chatTitulo">在线客服</span></span>
+            <button onclick="toggleChat()">—</button>
+        </div>
+        <div class="chatMensajes" id="chatMensajes">
+            <div class="mensaje bot">
+                <span data-i18n="chatHola">你好！我能帮你开门吗？</span>
+            </div>
+        </div>
+        <input class="chatInput" id="chatInput" type="text" placeholder="..." data-i18n-placeholder="chatPlaceholder">
     </div>
 
     <script src="开门.js"></script>
 </body>
-
 </html>

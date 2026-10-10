@@ -317,3 +317,103 @@ function 等待(毫秒) {
 // ===== 启动 =====
 
 设置提示("门就在那里。它在等你。");
+
+// ===== FASE 4.1: 网站乱七八糟的功能 =====
+
+// 一个什么也不做的按钮
+function noHaceNada() {
+    const 废话 = [
+        "这个按钮什么也不做。",
+        "你期待什么?",
+        "🎉 恭喜! 你成功地点了一个没用的按钮。",
+        "门不在这里。",
+        "请开门, 不要点按钮。",
+        "这个按钮已经被点击 " + Math.floor(Math.random() * 9999) + " 次。",
+        "404: 功能未找到。",
+        "你在找什么?",
+        "再点一次试试。",
+        "不。"
+    ];
+    alert(随机选(废话));
+}
+
+// Popup 广告
+function 显示Popup() {
+    document.getElementById("弹出广告").classList.add("显示");
+}
+
+function cerrarPopup() {
+    document.getElementById("弹出广告").classList.remove("显示");
+}
+
+// 随机弹出 (每 15-30 秒)
+setTimeout(function 循环弹出() {
+    if (!门已打开) {
+        显示Popup();
+    }
+    setTimeout(循环弹出, 随机整数(15000, 30000));
+}, 随机整数(8000, 15000));
+
+// 随机时钟 (时间不停地跳动, 没有意义)
+function 更新时钟() {
+    const 时 = String(随机整数(0, 23)).padStart(2, "0");
+    const 分 = String(随机整数(0, 59)).padStart(2, "0");
+    const 秒 = String(随机整数(0, 59)).padStart(2, "0");
+    document.getElementById("随机时钟").textContent = `🕐 ${时}:${分}:${秒}`;
+}
+setInterval(更新时钟, 1000);
+
+// 访客计数器 (ridículo, siempre el mismo rango)
+document.getElementById("访客数").textContent = 
+    (999000 + 随机整数(0, 999)).toLocaleString();
+
+// Chat de soporte
+function toggleChat() {
+    document.getElementById("chatSoporte").classList.toggle("最小化");
+}
+
+// Chat: responder a mensajes con frases absurdas
+document.getElementById("chatInput").addEventListener("keypress", function(e) {
+    if (e.key === "Enter" && this.value.trim() !== "") {
+        const 用户消息 = this.value.trim();
+        this.value = "";
+        
+        // Añadir mensaje del usuario
+        const 消息区 = document.getElementById("chatMensajes");
+        const 用户消息元素 = document.createElement("div");
+        用户消息元素.className = "mensaje 用户";
+        用户消息元素.textContent = 用户消息;
+        用户消息元素.style.background = "#cce5ff";
+        用户消息元素.style.marginLeft = "auto";
+        用户消息元素.style.border = "2px solid #000";
+        消息区.appendChild(用户消息元素);
+        消息区.scrollTop = 消息区.scrollHeight;
+        
+        // Respuesta del "soporte" después de un delay
+        setTimeout(function() {
+            const 回复 = 随机选([
+                "请开门。",
+                "好的, 已记录。",
+                "这个问题需要付费咨询。",
+                "门正在处理你的请求。",
+                "😊 还有什么可以帮您?",
+                "我也想知道。",
+                "请重新描述问题。",
+                "感谢您的反馈!",
+                "这个功能正在开发中。",
+                "请开门。",
+                "你说得对。",
+                "抱歉, 我不太明白。",
+                "请再试一次。",
+                "您的问题已提交至相关部门。",
+                "请开门。"
+            ]);
+            const 机器人消息 = document.createElement("div");
+            机器人消息.className = "mensaje bot";
+            机器人消息.textContent = 回复;
+            机器人消息.style.border = "2px solid #000";
+            消息区.appendChild(机器人消息);
+            消息区.scrollTop = 消息区.scrollHeight;
+        }, 800 + Math.random() * 1000);
+    }
+});

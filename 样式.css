@@ -1,3 +1,8 @@
+/* ===========================
+   开门模拟器 - 样式
+   现在 200% 更糟!!!
+   =========================== */
+
 * {
     margin: 0;
     padding: 0;
@@ -5,63 +10,230 @@
 }
 
 body {
-    font-family: "PingFang SC", "Microsoft YaHei", "Segoe UI", sans-serif;
-    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    font-family: "Comic Sans MS", "PingFang SC", "Microsoft YaHei", cursive;
+    background: 
+        repeating-linear-gradient(45deg, #ff00ff 0px, #ff00ff 20px, #00ffff 20px, #00ffff 40px);
     min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #eaeaea;
+    color: #000;
     overflow-x: hidden;
+    animation: 背景移动 20s linear infinite;
 }
 
-/* 容器 */
-.容器 {
-    max-width: 700px;
-    width: 90%;
-    padding: 40px 20px;
-    text-align: center;
-    animation: 淡入 1s ease-out;
+@keyframes 背景移动 {
+    from { background-position: 0 0; }
+    to   { background-position: 200px 200px; }
 }
 
-@keyframes 淡入 {
-    from { opacity: 0; transform: translateY(20px); }
-    to   { opacity: 1; transform: translateY(0); }
+/* ===== BARRA SUPERIOR ===== */
+.顶部横幅 {
+    background: linear-gradient(90deg, #ff0000, #ffff00, #ff0000);
+    background-size: 200% 100%;
+    animation: 彩虹 3s linear infinite;
+    padding: 8px;
+    font-weight: bold;
+    font-size: 1rem;
+    color: #000;
+    border-bottom: 3px solid #000;
 }
 
-/* 头部 */
-.头部 h1 {
+@keyframes 彩虹 {
+    from { background-position: 0% 0; }
+    to   { background-position: 200% 0; }
+}
+
+/* ===== HEADER ===== */
+.头部 {
+    background: #fff;
+    border: 4px dashed #ff00ff;
+    padding: 20px;
+    margin: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    box-shadow: 8px 8px 0 #000;
+}
+
+.logo区 {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo {
     font-size: 3rem;
-    font-weight: 800;
-    letter-spacing: 8px;
-    background: linear-gradient(90deg, #f39c12, #e74c3c, #f39c12);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    margin-bottom: 12px;
-    text-shadow: 0 0 40px rgba(243, 156, 18, 0.3);
+    animation: 旋转Logo 4s linear infinite;
+}
+
+@keyframes 旋转Logo {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
+}
+
+.头部 h1 {
+    font-size: 2rem;
+    color: #ff00ff;
+    text-shadow: 3px 3px 0 #ffff00, 6px 6px 0 #000;
+    letter-spacing: 4px;
 }
 
 .副标题 {
-    font-size: 1rem;
-    color: #95a5a6;
-    letter-spacing: 2px;
-    margin-bottom: 50px;
+    font-size: 0.9rem;
+    color: #333;
     font-style: italic;
 }
 
-/* 主区域 */
+.idiomas {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.语言按钮 {
+    padding: 8px 14px;
+    font-size: 0.9rem;
+    background: linear-gradient(135deg, #00ff00, #00cc00);
+    border: 3px solid #000;
+    border-radius: 0;
+    cursor: pointer;
+    font-weight: bold;
+    box-shadow: 3px 3px 0 #000;
+    transition: all 0.1s;
+    font-family: inherit;
+}
+
+.语言按钮:hover {
+    transform: translate(1px, 1px);
+    box-shadow: 2px 2px 0 #000;
+}
+
+.语言按钮:active {
+    transform: translate(3px, 3px);
+    box-shadow: 0 0 0 #000;
+}
+
+/* ===== BANNER PUBLICITARIO ===== */
+.广告横幅 {
+    margin: 10px;
+    padding: 15px;
+    background: #ffff00;
+    border: 4px solid #000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 6px 6px 0 #000;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.广告文字 {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #ff0000;
+    animation: 闪烁 1s ease-in-out infinite alternate;
+}
+
+@keyframes 闪烁 {
+    from { opacity: 1; }
+    to   { opacity: 0.3; }
+}
+
+.广告按钮 {
+    padding: 10px 20px;
+    background: #ff0000;
+    color: #fff;
+    border: 3px solid #000;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 1rem;
+    box-shadow: 4px 4px 0 #000;
+    font-family: inherit;
+}
+
+/* ===== LAYOUT 3 COLUMNAS ===== */
+.主布局 {
+    display: grid;
+    grid-template-columns: 200px 1fr 200px;
+    gap: 10px;
+    margin: 10px;
+}
+
+/* ===== SIDEBARS ===== */
+.侧边栏 {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.小广告 {
+    background: #fff;
+    border: 3px solid #000;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 4px 4px 0 #000;
+    font-weight: bold;
+}
+
+.小广告 p {
+    margin: 4px 0;
+}
+
+.小字 {
+    font-size: 0.75rem;
+    color: #666;
+    font-weight: normal;
+}
+
+.闪烁 {
+    animation: 闪烁 0.8s ease-in-out infinite alternate;
+}
+
+/* ===== COLUMNA CENTRAL ===== */
 .主区域 {
+    background: #fff;
+    border: 5px solid #000;
+    padding: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 40px;
+    gap: 20px;
+    box-shadow: 8px 8px 0 #000;
 }
 
-/* 门框 */
+/* Contador de visitas */
+.访客计数器 {
+    background: #000;
+    color: #0f0;
+    padding: 10px 20px;
+    font-family: "Courier New", monospace;
+    font-size: 0.9rem;
+    border: 2px solid #0f0;
+    letter-spacing: 2px;
+}
+
+.数字 {
+    color: #ff0000;
+    font-weight: bold;
+    font-size: 1.2rem;
+    animation: 闪烁 0.5s ease-in-out infinite alternate;
+}
+
+/* Reloj */
+.随机时钟 {
+    font-family: "Courier New", monospace;
+    font-size: 1.2rem;
+    background: #000;
+    color: #ff00ff;
+    padding: 8px 16px;
+    border: 3px solid #ff00ff;
+    letter-spacing: 3px;
+}
+
+/* ===== PUERTA (igual que antes pero más chica) ===== */
 .门框 {
-    width: 220px;
-    height: 340px;
+    width: 180px;
+    height: 280px;
     background: #2c1810;
     border: 12px solid #4a2c1a;
     border-bottom: none;
@@ -75,10 +247,8 @@ body {
     display: flex;
     justify-content: center;
     align-items: flex-end;
-    padding-bottom: 0;
 }
 
-/* 门 */
 .门 {
     width: 100%;
     height: 100%;
@@ -90,118 +260,279 @@ body {
     transition: transform 0.8s cubic-bezier(0.4, 0.0, 0.2, 1);
     box-shadow: inset 0 0 60px rgba(0, 0, 0, 0.4);
     background-image:
-        repeating-linear-gradient(
-            90deg,
-            transparent 0px,
-            transparent 60px,
-            rgba(0, 0, 0, 0.15) 60px,
-            rgba(0, 0, 0, 0.15) 62px
-        );
+        repeating-linear-gradient(90deg, transparent 0px, transparent 50px,
+            rgba(0, 0, 0, 0.15) 50px, rgba(0, 0, 0, 0.15) 52px);
 }
 
-.门:hover {
-    box-shadow:
-        inset 0 0 60px rgba(0, 0, 0, 0.4),
-        0 0 40px rgba(243, 156, 18, 0.5);
-}
-
-/* 门被打开的状态 */
 .门.打开 {
     transform: rotateY(-75deg);
 }
 
-/* 门把手 */
 .门把手 {
     position: absolute;
-    right: 18px;
+    right: 14px;
     top: 50%;
     transform: translateY(-50%);
-    width: 16px;
-    height: 16px;
+    width: 14px;
+    height: 14px;
     background: radial-gradient(circle, #f1c40f, #b8860b);
     border-radius: 50%;
-    box-shadow:
-        0 0 10px rgba(241, 196, 15, 0.8),
-        inset -2px -2px 4px rgba(0, 0, 0, 0.5);
     animation: 把手呼吸 2s ease-in-out infinite;
 }
 
 @keyframes 把手呼吸 {
-    0%, 100% { box-shadow: 0 0 10px rgba(241, 196, 15, 0.8), inset -2px -2px 4px rgba(0,0,0,0.5); }
-    50%      { box-shadow: 0 0 25px rgba(241, 196, 15, 1), inset -2px -2px 4px rgba(0,0,0,0.5); }
+    0%, 100% { box-shadow: 0 0 10px rgba(241, 196, 15, 0.8); }
+    50%      { box-shadow: 0 0 25px rgba(241, 196, 15, 1); }
 }
 
-/* 门牌 "出" */
 .门牌 {
     position: absolute;
-    top: 30px;
+    top: 20px;
     left: 50%;
     transform: translateX(-50%);
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     background: #f1c40f;
     color: #1a1a2e;
-    font-size: 28px;
+    font-size: 22px;
     font-weight: bold;
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 50%;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-    font-family: "KaiTi", "STKaiti", serif;
+    font-family: "KaiTi", serif;
 }
 
-/* 开门按钮 */
+/* ===== BOTÓN ABRIR ===== */
 .开门按钮 {
-    padding: 18px 50px;
-    font-size: 1.2rem;
+    padding: 16px 40px;
+    font-size: 1.1rem;
     font-weight: bold;
-    letter-spacing: 3px;
+    letter-spacing: 2px;
     color: #fff;
     background: linear-gradient(135deg, #e74c3c, #c0392b);
-    border: none;
-    border-radius: 50px;
+    border: 4px solid #000;
     cursor: pointer;
-    box-shadow:
-        0 10px 30px rgba(231, 76, 60, 0.4),
-        inset 0 -4px 0 rgba(0, 0, 0, 0.2);
-    transition: all 0.3s ease;
+    box-shadow: 6px 6px 0 #000;
+    transition: all 0.1s;
     font-family: inherit;
 }
 
 .开门按钮:hover {
-    transform: translateY(-3px);
-    box-shadow:
-        0 15px 40px rgba(231, 76, 60, 0.6),
-        inset 0 -4px 0 rgba(0, 0, 0, 0.2);
+    transform: translate(2px, 2px);
+    box-shadow: 4px 4px 0 #000;
 }
 
 .开门按钮:active {
-    transform: translateY(1px);
-    box-shadow:
-        0 5px 15px rgba(231, 76, 60, 0.4),
-        inset 0 -2px 0 rgba(0, 0, 0, 0.2);
+    transform: translate(6px, 6px);
+    box-shadow: 0 0 0 #000;
 }
 
-/* 提示文字 */
 .提示 {
-    font-size: 1rem;
-    color: #95a5a6;
-    letter-spacing: 2px;
+    font-size: 0.95rem;
+    color: #333;
+    text-align: center;
     min-height: 24px;
-    transition: color 0.3s ease;
+    font-weight: bold;
+    background: #ffffcc;
+    padding: 8px 16px;
+    border: 2px dashed #000;
 }
 
-/* 底部 */
-.底部 {
-    margin-top: 60px;
+/* ===== BOTONES RANDOM ===== */
+.按钮群 {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+    margin: 10px;
+    padding: 15px;
+    background: #fff;
+    border: 4px dashed #00ff00;
+}
+
+.随机按钮 {
+    padding: 8px 16px;
+    background: linear-gradient(135deg, #ff00ff, #cc00cc);
+    color: #fff;
+    border: 3px solid #000;
+    cursor: pointer;
+    font-weight: bold;
+    box-shadow: 3px 3px 0 #000;
+    font-family: inherit;
     font-size: 0.85rem;
-    color: #566573;
-    letter-spacing: 1px;
 }
 
-.警告 {
-    margin-top: 6px;
-    color: #7f8c8d;
-    font-size: 0.8rem;
+.随机按钮:hover {
+    background: linear-gradient(135deg, #ffff00, #ffcc00);
+    color: #000;
+}
+
+/* ===== FOOTER ===== */
+.底部 {
+    background: #000;
+    color: #0f0;
+    padding: 20px;
+    margin: 10px;
+    border: 4px solid #0f0;
+    text-align: center;
+    font-size: 0.85rem;
+    font-family: "Courier New", monospace;
+}
+
+.footer链接 {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+.footer链接 a {
+    color: #0ff;
+    text-decoration: underline;
+}
+
+.footer链接 a:hover {
+    color: #ff0;
+    text-decoration: none;
+}
+
+.版权, .警告, .小鱼 {
+    margin: 6px 0;
+}
+
+/* ===== POPUP ===== */
+.弹出广告 {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #ffff00;
+    border: 5px solid #ff0000;
+    padding: 30px;
+    box-shadow: 10px 10px 0 #000;
+    z-index: 1000;
+    text-align: center;
+    max-width: 400px;
+    animation: 弹出 0.3s ease-out;
+}
+
+.弹出广告.显示 {
+    display: block;
+}
+
+@keyframes 弹出 {
+    from { transform: translate(-50%, -50%) scale(0.5); opacity: 0; }
+    to   { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+}
+
+.关闭按钮 {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background: #ff0000;
+    color: #fff;
+    border: 2px solid #000;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+.弹出按钮 {
+    margin-top: 15px;
+    padding: 10px 25px;
+    background: #00ff00;
+    border: 3px solid #000;
+    font-weight: bold;
+    cursor: pointer;
+    font-family: inherit;
+}
+
+/* ===== CHAT ===== */
+.chatSoporte {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 280px;
+    background: #fff;
+    border: 4px solid #000;
+    box-shadow: 6px 6px 0 #000;
+    z-index: 900;
+    font-family: inherit;
+}
+
+.chatHeader {
+    background: #000;
+    color: #0f0;
+    padding: 8px 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+.chatHeader button {
+    background: #ff0000;
+    color: #fff;
+    border: 2px solid #0f0;
+    cursor: pointer;
+    width: 24px;
+    height: 24px;
+    font-weight: bold;
+}
+
+.chatMensajes {
+    padding: 10px;
+    max-height: 150px;
+    overflow-y: auto;
+    background: #f0f0f0;
+}
+
+.mensaje {
+    padding: 6px 10px;
+    margin: 4px 0;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    max-width: 85%;
+}
+
+.mensaje.bot {
+    background: #e0e0e0;
+    border: 2px solid #000;
+}
+
+.chatInput {
+    width: 100%;
+    padding: 8px;
+    border: none;
+    border-top: 2px solid #000;
+    font-family: inherit;
+    font-size: 0.85rem;
+}
+
+.chatSoporte.最小化 .chatMensajes,
+.chatSoporte.最小化 .chatInput {
+    display: none;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+    .主布局 {
+        grid-template-columns: 1fr;
+    }
+    .侧边栏 {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    .小广告 {
+        flex: 1 1 45%;
+    }
+    .头部 h1 {
+        font-size: 1.4rem;
+    }
 }
