@@ -287,6 +287,29 @@ function 绑定语言事件() {
     });
 }
 
+//bug
+const 页面重置 = ["changelog", "careers", "blog", "cookies"];
+let 页面Visitas = JSON.parse(localStorage.getItem("开门模拟器_页面Visitas") || "{}");
+
+function 检测BugSecreto() {
+    const hash = window.location.hash.replace("#", "");
+    
+    if (页面重置.includes(hash)) {
+        if (免费切换已使用) {
+            console.log("[bug] 页面访问... 重置标志 (el sistema no se da cuenta)");
+            免费切换已使用 = false;
+            localStorage.removeItem(本地存储键_已切换);
+        }
+        
+        页面Visitas[hash] = (页面Visitas[hash] || 0) + 1;
+        localStorage.setItem("开门模拟器_页面Visitas", JSON.stringify(页面Visitas));
+    }
+}
+
+window.addEventListener("hashchange", 检测BugSecreto);
+
+setTimeout(检测BugSecreto, 100);
+
 // ===== 导出给其他模块用 =====
 window.语言 = {
     初始化语言系统,
@@ -296,6 +319,7 @@ window.语言 = {
     显示小提示,
     打开模态,
     关闭模态,
+    检测BugSecreto,
     获取当前语言: () => 当前语言代码,
     获取翻译: () => 语言数据[当前语言代码] || 语言数据["中文"]
 };

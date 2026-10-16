@@ -1,12 +1,10 @@
 /* ============================================
    开门模拟器 - 主控模块
-   负责启动一切
    ============================================ */
 
 console.log("[主要] DoorTech™ 正在启动...");
 console.log("[主要] 你只是想开个门。");
 
-// ===== 初始化 =====
 async function 启动() {
     // 1. Cargar traducciones
     await 语言.加载翻译();
@@ -17,14 +15,18 @@ async function 启动() {
     // 3. Aplicar traducción actual
     语言.应用翻译(语言.获取当前语言());
 
-    // 4. Bindear eventos de idioma
-    // (esto está dentro de 语言.js, pero por claridad:)
+    // 4. Inicializar puerta
+    门.初始化门();
+
+    // 5. Bindear eventos de idioma
     绑定语言事件();
+
+    // 6. Bindear links del footer a las páginas fake
+    绑定FooterLinks();
 
     console.log("[主要] 启动完成。当前语言:", 语言.获取当前语言());
 }
 
-// ===== Eventos de idioma (por si no están dentro de 语言.js) =====
 function 绑定语言事件() {
     const 语言按钮 = document.getElementById("语言按钮");
     const 语言菜单 = document.getElementById("语言菜单");
@@ -53,8 +55,27 @@ function 绑定语言事件() {
     });
 }
 
+function 绑定FooterLinks() {
+    // Changelog, Careers, Blog, Cookies → abrir "páginas"
+    const 链接映射 = {
+        "footerChangelog": "changelog",
+        "footerCareers": "careers",
+        "footerBlog": "blog",
+        "footerCookies": "cookies"
+    };
+
+    Object.entries(链接映射).forEach(([键, 页面ID]) => {
+        const 元素 = document.querySelector(`[data-i18n="${键}"]`);
+        if (元素 && 元素.tagName === "A") {
+            元素.addEventListener("click", (e) => {
+                e.preventDefault();
+                window.页面.打开页面(页面ID);
+            });
+        }
+    });
+}
+
 // ===== 启动 =====
-// 等待 DOM 加载完成
 if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", 启动);
 } else {
