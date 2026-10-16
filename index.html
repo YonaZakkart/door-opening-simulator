@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>开门模拟器 · DoorTech™</title>
     <link rel="stylesheet" href="样式/主要.css">
 </head>
+
 <body>
 
     <!--HEADER  -->
@@ -23,23 +25,20 @@
                 <a href="#" id="链接关于" data-i18n="navAbout">关于</a>
             </nav>
 
-            <div class="导航右侧">
-                <div class="语言选择器">
-                    <button class="语言按钮" id="语言按钮">
-                        🌐 <span id="当前语言">中文</span>
-                    </button>
-                    <div class="语言菜单" id="语言菜单">
-                        <button class="语言选项" data-lang="zh">🇨🇳 中文</button>
-                        <button class="语言选项" data-lang="es">🇪🇸 Español</button>
-                        <button class="语言选项" data-lang="en">🇬🇧 English</button>
-                        <div class="语言分隔线"></div>
-                        <button class="语言选项 语言预mium" data-lang="ru" disabled>🇷🇺 Русский 🔒</button>
-                        <button class="语言选项 语言预mium" data-lang="ja" disabled>🇯🇵 日本語 🔒</button>
-                        <button class="语言选项 语言预mium" data-lang="pt" disabled>🇵🇹 Português 🔒</button>
-                        <button class="语言选项 语言预mium" data-lang="wenyan" disabled>📜 文言文 🔒</button>
-                    </div>
+            <div class="语言选择器">
+                <button class="语言按钮" id="语言按钮">
+                    🌐 <span id="当前语言">中文</span>
+                </button>
+                <div class="语言菜单" id="语言菜单">
+                    <button class="语言选项" data-lang="zh">🇨🇳 中文</button>
+                    <button class="语言选项" data-lang="es">🇪🇸 Español</button>
+                    <button class="语言选项" data-lang="en">🇬🇧 English</button>
+                    <div class="语言分隔线"></div>
+                    <button class="语言选项 语言预mium" disabled>🇷🇺 Русский 🔒</button>
+                    <button class="语言选项 语言预mium" disabled>🇯🇵 日本語 🔒</button>
+                    <button class="语言选项 语言预mium" disabled>🇵🇹 Português 🔒</button>
+                    <button class="语言选项 语言预mium" disabled>📜 文言文 🔒</button>
                 </div>
-                <button class="登录按钮" id="登录按钮" data-i18n="navLogin">登录</button>
             </div>
         </div>
     </header>
@@ -154,7 +153,8 @@
             <div class="底部列">
                 <h4 data-i18n="footerComunidad">社区</h4>
                 <a href="https://github.com/YonaZakkart" target="_blank">GitHub</a>
-                <a href="https://github.com/YonaZakkart/door-opening-simulator" target="_blank" data-i18n="footerRepo">Repository</a>
+                <a href="https://github.com/YonaZakkart/door-opening-simulator" target="_blank"
+                    data-i18n="footerRepo">Repository</a>
                 <a href="#" data-i18n="footerSupport">Support</a>
             </div>
         </div>
@@ -181,8 +181,8 @@
                     服务当前不可用。
                 </div>
             </div>
-            <input class="chatInput" id="chatInput" type="text" 
-                   placeholder="..." data-i18n-placeholder="chatPlaceholder">
+            <input class="chatInput" id="chatInput" type="text" placeholder="..."
+                data-i18n-placeholder="chatPlaceholder">
         </div>
     </div>
 
@@ -192,12 +192,13 @@
 
     <!--SCRIPTS -->
     <script src="脚本/语言.js"></script>
+    <script src="脚本/聊天.js"></script>
     <script src="脚本/门.js"></script>
     <script src="脚本/登录.js"></script>
     <script src="脚本/奖品.js"></script>
     <script src="脚本/广告.js"></script>
-    <script src="脚本/聊天.js"></script>
     <script src="脚本/主要.js"></script>
 
 </body>
+
 </html>
