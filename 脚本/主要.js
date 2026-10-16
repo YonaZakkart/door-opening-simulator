@@ -18,11 +18,17 @@ async function 启动() {
     // 4. Inicializar puerta
     门.初始化门();
 
-    // 5. Bindear eventos de idioma
+    // 5. Inicializar login
+    登录.初始化登录();      // 👈 NUEVO
+
+    // 6. Bindear eventos de idioma
     绑定语言事件();
 
-    // 6. Bindear links del footer a las páginas fake
+    // 7. Bindear links del footer a las páginas fake
     绑定FooterLinks();
+
+    // 8. Bindear login (logo + botón)
+    登录.绑定登录触发();    // 👈 NUEVO
 
     console.log("[主要] 启动完成。当前语言:", 语言.获取当前语言());
 }

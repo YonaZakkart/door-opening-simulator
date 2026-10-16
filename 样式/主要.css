@@ -981,3 +981,63 @@ body {
         transform: rotate(2deg);
     }
 }
+
+/* ===== INPUTS EN MODALES ===== */
+.模态输入 {
+    width: 100%;
+    padding: 12px 16px;
+    background: var(--背景主);
+    color: var(--文字主);
+    border: 1px solid var(--borde);
+    border-radius: var(--radioPeq);
+    font-size: 0.95rem;
+    font-family: inherit;
+    outline: none;
+    transition: all var(--transicion);
+    margin-top: 8px;
+}
+
+.模态输入:focus {
+    border-color: var(--点缀);
+    box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.15);
+}
+
+.模态输入::placeholder {
+    color: var(--文字弱);
+}
+
+.输入提示 {
+    font-size: 0.8rem;
+    color: var(--文字弱);
+    margin-top: 8px;
+    font-style: italic;
+    transition: color var(--transicion);
+}
+
+/* ===== LISTA DE REQUISITOS DE CONTRASEÑA ===== */
+.密码要求 {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 16px 0;
+    background: var(--背景三);
+    border-radius: var(--radioPeq);
+    padding: 12px 16px;
+    font-size: 0.85rem;
+}
+
+.密码要求 li {
+    padding: 4px 0;
+    color: var(--文字次);
+    transition: all var(--transicion);
+    font-family: monospace;
+}
+
+.密码要求 li.完成 {
+    color: var(--exito);
+    font-weight: 500;
+}
+
+/* Modal más ancho para el registro */
+.模态:has(.密码要求) {
+    max-width: 520px;
+}
