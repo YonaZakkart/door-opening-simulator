@@ -18,8 +18,8 @@ async function 启动() {
     // 4. Inicializar puerta
     门.初始化门();
 
-    // 5. Inicializar login
-    登录.初始化登录();      // 👈 NUEVO
+    // 5. Inicializar login (⚠️ esto SIEMPRE cierra la sesión)
+    登录.初始化登录();
 
     // 6. Bindear eventos de idioma
     绑定语言事件();
@@ -27,10 +27,12 @@ async function 启动() {
     // 7. Bindear links del footer a las páginas fake
     绑定FooterLinks();
 
-    // 8. Bindear login (logo + botón)
-    登录.绑定登录触发();    // 👈 NUEVO
+    // 8. Bindear login (logo + botón + puerta + premio + chat)
+    登录.绑定登录触发();
 
+    // 9. ⚠️ NO auto-abrir login, solo interceptar triggers
     console.log("[主要] 启动完成。当前语言:", 语言.获取当前语言());
+    console.log("[主要] 🔒 会话 cerrada. Login requerido para jugar.");
 }
 
 function 绑定语言事件() {

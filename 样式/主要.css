@@ -1041,3 +1041,56 @@ body {
 .模态:has(.密码要求) {
     max-width: 520px;
 }
+
+/* ===== LOGIN USER AREA ===== */
+.登录用户区 {
+    padding: 12px 16px;
+    background: var(--背景三);
+    border-radius: var(--radioPeq);
+    border: 1px solid var(--borde);
+}
+
+.用户名Row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    font-family: monospace;
+    font-size: 1rem;
+    color: var(--文字主);
+    margin-top: 4px;
+}
+
+.用户名Row strong {
+    word-break: break-all;
+}
+
+.iconBtn {
+    padding: 6px 10px;
+    background: transparent;
+    color: var(--文字次);
+    border: 1px solid var(--borde);
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all var(--transicion);
+    font-family: inherit;
+    flex-shrink: 0;
+}
+
+.iconBtn:hover {
+    background: var(--背景hover);
+    color: var(--文字主);
+    border-color: var(--点缀);
+}
+
+/* Botón peligro */
+.模态按钮.危险 {
+    background: var(--peligro);
+    color: #fff;
+    border-color: var(--peligro);
+}
+
+.模态按钮.危险:hover {
+    background: #dc2626;
+}

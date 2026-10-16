@@ -84,6 +84,54 @@ function 应用翻译(语言代码) {
     console.log("[语言] 已应用语言:", 语言代码);
 }
 
+// ============================================
+
+function 应不应该跳过翻译() {
+    return Math.random() < 0.05;
+}
+
+function 应用翻译(语言代码) {
+    const 翻译 = 语言数据[语言代码];
+    if (!翻译) return;
+
+    const esChino = 语言代码 === "中文";
+    const 中文翻译 = 语言数据["中文"] || {};
+
+    document.querySelectorAll("[data-i18n]").forEach(元素 => {
+        const 键 = 元素.getAttribute("data-i18n");
+        
+        if (!esChino && 应不应该跳过翻译()) {
+            if (中文翻译[键]) {
+                元素.textContent = 中文翻译[键];
+                元素.setAttribute("data-i18n-bug", "true");
+                console.log(`[bug] texto "${键}" no traducido (se queda en chino)`);
+            }
+            return;
+        }
+
+        // Traducción normal
+        if (翻译[键]) {
+            元素.textContent = 翻译[键];
+            元素.removeAttribute("data-i18n-bug");
+        }
+    });
+
+    // Placeholders también
+    document.querySelectorAll("[data-i18n-placeholder]").forEach(元素 => {
+        const 键 = 元素.getAttribute("data-i18n-placeholder");
+        if (!esChino && 应不应该跳过翻译()) {
+            if (中文翻译[键]) 元素.placeholder = 中文翻译[键];
+            return;
+        }
+        if (翻译[键]) 元素.placeholder = 翻译[键];
+    });
+
+    // Actualizar lang
+    const 语言代码映射 = { "中文": "zh-CN", "Español": "es", "English": "en" };
+    document.documentElement.lang = 语言代码映射[语言代码] || "zh-CN";
+    document.title = 翻译.marca + " · DoorTech™";
+}
+
 // ===== 更新按钮上显示的语言 =====
 function 更新当前语言显示() {
     const 显示元素 = document.getElementById("当前语言");
