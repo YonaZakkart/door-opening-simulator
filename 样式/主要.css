@@ -1,0 +1,872 @@
+/* ============================================
+   DoorTech™ - 开门模拟器
+   样式表 v2.0
+   风格: 现代、深色、专业外表下的混乱
+   ============================================ */
+
+/* ===== VARIABLES ===== */
+:root {
+    --背景主: #0f172a;
+    --背景次: #1e293b;
+    --背景三: #334155;
+    --背景hover: #475569;
+    --文字主: #e2e8f0;
+    --文字次: #94a3b8;
+    --文字弱: #64748b;
+    --点缀: #f59e0b;
+    --点缀hover: #fbbf24;
+    --peligro: #ef4444;
+    --exito: #10b981;
+    --borde: #334155;
+    --bordeClaro: #475569;
+    --sombra: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+    --sombraGrande: 0 20px 25px -5px rgba(0, 0, 0, 0.4);
+    --radio: 12px;
+    --radioPeq: 8px;
+    --transicion: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ===== RESET ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+                 "Microsoft YaHei", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background: var(--背景主);
+    color: var(--文字主);
+    line-height: 1.6;
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* ===== HEADER ===== */
+.顶部导航 {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(15, 23, 42, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--borde);
+}
+
+.导航内容 {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 16px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+}
+
+.品牌 {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--文字主);
+    cursor: pointer;
+    transition: transform var(--transicion);
+}
+
+.品牌:hover {
+    transform: scale(1.02);
+}
+
+.品牌图标 {
+    font-size: 1.5rem;
+    filter: drop-shadow(0 0 8px rgba(245, 158, 11, 0.5));
+}
+
+.品牌标记 {
+    color: var(--文字弱);
+    font-size: 0.7rem;
+    align-self: flex-start;
+    margin-top: 2px;
+}
+
+.导航链接 {
+    display: flex;
+    gap: 28px;
+    flex: 1;
+    justify-content: center;
+}
+
+.导航链接 a {
+    color: var(--文字次);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: color var(--transicion);
+}
+
+.导航链接 a:hover {
+    color: var(--文字主);
+}
+
+.导航右侧 {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* ===== SELECTOR DE IDIOMA ===== */
+.语言选择器 {
+    position: relative;
+}
+
+.语言按钮 {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 14px;
+    background: transparent;
+    color: var(--文字次);
+    border: 1px solid var(--borde);
+    border-radius: var(--radioPeq);
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all var(--transicion);
+    font-family: inherit;
+}
+
+.语言按钮:hover {
+    color: var(--文字主);
+    border-color: var(--bordeClaro);
+    background: var(--背景次);
+}
+
+.语言菜单 {
+    display: none;
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    min-width: 220px;
+    background: var(--背景次);
+    border: 1px solid var(--borde);
+    border-radius: var(--radio);
+    box-shadow: var(--sombraGrande);
+    padding: 8px;
+    z-index: 200;
+    animation: 菜单淡入 0.15s ease-out;
+}
+
+.语言菜单.显示 {
+    display: block;
+}
+
+@keyframes 菜单淡入 {
+    from { opacity: 0; transform: translateY(-4px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+.语言选项 {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+    padding: 10px 12px;
+    background: transparent;
+    color: var(--文字主);
+    border: none;
+    border-radius: var(--radioPeq);
+    font-size: 0.875rem;
+    text-align: left;
+    cursor: pointer;
+    transition: background var(--transicion);
+    font-family: inherit;
+}
+
+.语言选项:hover:not(:disabled) {
+    background: var(--背景三);
+}
+
+.语言选项:disabled {
+    color: var(--文字弱);
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+.语言预mium {
+    font-style: italic;
+}
+
+.语言分隔线 {
+    height: 1px;
+    background: var(--borde);
+    margin: 6px 4px;
+}
+
+/* ===== BOTÓN LOGIN ===== */
+.登录按钮 {
+    padding: 8px 18px;
+    background: var(--点缀);
+    color: #0f172a;
+    border: none;
+    border-radius: var(--radioPeq);
+    font-size: 0.875rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all var(--transicion);
+    font-family: inherit;
+}
+
+.登录按钮:hover {
+    background: var(--点缀hover);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
+}
+
+/* ===== BANNER PUBLICITARIO ===== */
+.广告banner {
+    max-width: 1200px;
+    margin: 16px auto 0;
+    padding: 0 24px;
+}
+
+.广告内容 {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 14px 20px;
+    background: linear-gradient(135deg, var(--背景次), var(--背景三));
+    border: 1px solid var(--borde);
+    border-radius: var(--radio);
+    flex-wrap: wrap;
+}
+
+.广告标签 {
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    color: var(--文字弱);
+    padding: 3px 8px;
+    background: var(--背景主);
+    border-radius: 4px;
+}
+
+.广告文字 {
+    flex: 1;
+    color: var(--文字次);
+    font-size: 0.9rem;
+    min-width: 200px;
+}
+
+.广告cta {
+    color: var(--点缀);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: color var(--transicion);
+    white-space: nowrap;
+}
+
+.广告cta:hover {
+    color: var(--点缀hover);
+}
+
+.广告banner2 .广告内容 {
+    background: linear-gradient(135deg, #1e1b4b, #312e81);
+    border-color: #4338ca;
+}
+
+/* ===== MAIN ===== */
+.主内容 {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 48px 24px;
+}
+
+/* ===== HERO / PUERTA ===== */
+.主角区 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 48px 0 64px;
+}
+
+.主标题 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    margin-bottom: 12px;
+    background: linear-gradient(135deg, var(--文字主), var(--文字次));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.主副标题 {
+    font-size: 1.1rem;
+    color: var(--文字次);
+    margin-bottom: 48px;
+}
+
+/* ===== PUERTA ===== */
+.门框 {
+    width: 200px;
+    height: 320px;
+    background: #1a0f08;
+    border: 14px solid #2c1810;
+    border-bottom: none;
+    border-radius: 8px 8px 0 0;
+    position: relative;
+    box-shadow:
+        0 0 0 2px #0a0604,
+        0 0 60px rgba(245, 158, 11, 0.15),
+        inset 0 0 60px rgba(0, 0, 0, 0.6);
+    perspective: 1200px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    margin-bottom: 40px;
+    transition: box-shadow 0.4s ease;
+}
+
+.门框:hover {
+    box-shadow:
+        0 0 0 2px #0a0604,
+        0 0 80px rgba(245, 158, 11, 0.3),
+        inset 0 0 60px rgba(0, 0, 0, 0.6);
+}
+
+.门 {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #6b3410 0%, #4a2408 100%);
+    border-radius: 4px 4px 0 0;
+    position: relative;
+    cursor: pointer;
+    transform-origin: left center;
+    transition: transform 0.9s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: inset 0 0 60px rgba(0, 0, 0, 0.5);
+    background-image:
+        repeating-linear-gradient(90deg,
+            transparent 0px, transparent 55px,
+            rgba(0, 0, 0, 0.2) 55px, rgba(0, 0, 0, 0.2) 57px);
+}
+
+.门:hover {
+    box-shadow:
+        inset 0 0 60px rgba(0, 0, 0, 0.5),
+        0 0 40px rgba(245, 158, 11, 0.4);
+}
+
+.门.打开 {
+    transform: rotateY(-78deg);
+}
+
+.门把手 {
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 16px;
+    height: 16px;
+    background: radial-gradient(circle at 30% 30%, #fbbf24, #b45309);
+    border-radius: 50%;
+    box-shadow: 0 0 12px rgba(245, 158, 11, 0.7);
+    animation: 把手呼吸 2.5s ease-in-out infinite;
+}
+
+@keyframes 把手呼吸 {
+    0%, 100% { box-shadow: 0 0 12px rgba(245, 158, 11, 0.7); }
+    50%      { box-shadow: 0 0 24px rgba(245, 158, 11, 1); }
+}
+
+.门牌 {
+    position: absolute;
+    top: 28px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 44px;
+    height: 44px;
+    background: var(--点缀);
+    color: #0f172a;
+    font-size: 24px;
+    font-weight: 800;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    font-family: "KaiTi", "STKaiti", serif;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+/* ===== BOTÓN PRINCIPAL ===== */
+.主按钮 {
+    padding: 16px 40px;
+    font-size: 1.05rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    color: #0f172a;
+    background: var(--点缀);
+    border: none;
+    border-radius: var(--radioPeq);
+    cursor: pointer;
+    transition: all var(--transicion);
+    font-family: inherit;
+    box-shadow: 0 4px 16px rgba(245, 158, 11, 0.25);
+}
+
+.主按钮:hover {
+    background: var(--点缀hover);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(245, 158, 11, 0.4);
+}
+
+.主按钮:active {
+    transform: translateY(0);
+}
+
+.主按钮:disabled {
+    background: var(--背景三);
+    color: var(--文字弱);
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+/* ===== PISTA / TEXTO DINÁMICO ===== */
+.提示文字 {
+    margin-top: 20px;
+    font-size: 0.95rem;
+    color: var(--文字次);
+    min-height: 24px;
+    transition: color var(--transicion);
+}
+
+/* ===== SECCIÓN FEATURES ===== */
+.特性区 {
+    padding: 64px 0;
+    border-top: 1px solid var(--borde);
+}
+
+.区块标题 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 40px;
+    color: var(--文字主);
+}
+
+.特性网格 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+}
+
+.特性卡片 {
+    padding: 28px 24px;
+    background: var(--背景次);
+    border: 1px solid var(--borde);
+    border-radius: var(--radio);
+    transition: all var(--transicion);
+}
+
+.特性卡片:hover {
+    border-color: var(--点缀);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+.特性图标 {
+    font-size: 2rem;
+    margin-bottom: 12px;
+}
+
+.特性卡片 h3 {
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+    color: var(--文字主);
+}
+
+.特性卡片 p {
+    font-size: 0.9rem;
+    color: var(--文字次);
+    line-height: 1.6;
+}
+
+/* ===== BANNER PREMIO ===== */
+.奖品banner {
+    margin: 32px 0;
+    padding: 0;
+}
+
+.奖品contenido {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 24px 28px;
+    background: linear-gradient(135deg, #7c2d12, #9a3412);
+    border: 2px solid var(--点缀);
+    border-radius: var(--radio);
+    box-shadow: 0 0 40px rgba(245, 158, 11, 0.2);
+    flex-wrap: wrap;
+    position: relative;
+    overflow: hidden;
+}
+
+.奖品contenido::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    animation: brillo 3s ease-in-out infinite;
+    pointer-events: none;
+}
+
+@keyframes brillo {
+    0%, 100% { transform: translateX(-100%); }
+    50%      { transform: translateX(100%); }
+}
+
+.奖品icono {
+    font-size: 2.5rem;
+    filter: drop-shadow(0 0 12px rgba(255, 255, 255, 0.5));
+}
+
+.奖品文本o {
+    flex: 1;
+    min-width: 200px;
+}
+
+.奖品文本o h3 {
+    font-size: 1.15rem;
+    margin-bottom: 4px;
+    color: #fff;
+}
+
+.奖品文本o p {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.奖品按钮 {
+    padding: 12px 28px;
+    background: #fff;
+    color: #9a3412;
+    border: none;
+    border-radius: var(--radioPeq);
+    font-size: 0.95rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all var(--transicion);
+    font-family: inherit;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    position: relative;
+    z-index: 1;
+}
+
+.奖品按钮:hover {
+    transform: translateY(-2px) scale(1.03);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+/* ===== FOOTER ===== */
+.底部 {
+    background: var(--背景次);
+    border-top: 1px solid var(--borde);
+    padding: 48px 24px 24px;
+    margin-top: 64px;
+}
+
+.底部内容 {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 32px;
+    margin-bottom: 40px;
+}
+
+.底部列 h4 {
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    color: var(--文字主);
+    margin-bottom: 16px;
+}
+
+.底部列 a {
+    display: block;
+    color: var(--文字次);
+    text-decoration: none;
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+    transition: color var(--transicion);
+}
+
+.底部列 a:hover {
+    color: var(--点缀);
+}
+
+.底部Inferior {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-top: 24px;
+    border-top: 1px solid var(--borde);
+    text-align: center;
+    font-size: 0.85rem;
+    color: var(--文字弱);
+}
+
+.底部Aviso {
+    margin-top: 6px;
+    font-size: 0.8rem;
+    color: var(--文字弱);
+    font-style: italic;
+}
+
+/* ===== CHAT SOPORTE ===== */
+.chatSoporte {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    width: 320px;
+    background: var(--背景次);
+    border: 1px solid var(--borde);
+    border-radius: var(--radio);
+    box-shadow: var(--sombraGrande);
+    z-index: 500;
+    overflow: hidden;
+    transition: all var(--transicion);
+    font-size: 0.9rem;
+}
+
+.chatHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 16px;
+    background: var(--背景三);
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.85rem;
+    color: var(--文字主);
+}
+
+.chatToggle {
+    background: transparent;
+    border: none;
+    color: var(--文字次);
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 0 6px;
+    transition: color var(--transicion);
+}
+
+.chatToggle:hover {
+    color: var(--文字主);
+}
+
+.chatCuerpo {
+    max-height: 400px;
+    transition: max-height var(--transicion);
+    overflow: hidden;
+}
+
+.chatSoporte.最小化 .chatCuerpo {
+    max-height: 0;
+}
+
+.chatMensajes {
+    padding: 16px;
+    max-height: 240px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.mensaje {
+    padding: 10px 14px;
+    border-radius: var(--radioPeq);
+    font-size: 0.85rem;
+    max-width: 85%;
+    line-height: 1.5;
+}
+
+.mensaje.bot {
+    background: var(--背景三);
+    color: var(--文字主);
+    align-self: flex-start;
+    border-bottom-left-radius: 4px;
+}
+
+.mensaje.用户 {
+    background: var(--点缀);
+    color: #0f172a;
+    align-self: flex-end;
+    border-bottom-right-radius: 4px;
+    font-weight: 500;
+}
+
+.chatInput {
+    width: 100%;
+    padding: 12px 16px;
+    background: var(--背景主);
+    color: var(--文字主);
+    border: none;
+    border-top: 1px solid var(--borde);
+    font-size: 0.85rem;
+    font-family: inherit;
+    outline: none;
+}
+
+.chatInput::placeholder {
+    color: var(--文字弱);
+}
+
+/* ===== MODALES (para fases siguientes) ===== */
+.模态覆盖 {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    z-index: 1000;
+    animation: 覆盖淡入 0.2s ease-out;
+}
+
+.模态覆盖.显示 {
+    display: block;
+}
+
+@keyframes 覆盖淡入 {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+.模态容器 {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1001;
+    max-width: 500px;
+    width: 90%;
+    max-height: 85vh;
+    overflow-y: auto;
+}
+
+.模态容器.显示 {
+    display: block;
+}
+
+.模态 {
+    background: var(--背景次);
+    border: 1px solid var(--borde);
+    border-radius: var(--radio);
+    padding: 32px;
+    box-shadow: var(--sombraGrande);
+    animation: 模态入场 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes 模态入场 {
+    from { opacity: 0; transform: scale(0.95) translateY(10px); }
+    to   { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+.模态标题 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+    color: var(--文字主);
+}
+
+.模态文本o {
+    font-size: 0.95rem;
+    color: var(--文字次);
+    line-height: 1.6;
+    margin-bottom: 24px;
+}
+
+.模态按钮组 {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+}
+
+.模态按钮 {
+    padding: 10px 22px;
+    border-radius: var(--radioPeq);
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all var(--transicion);
+    font-family: inherit;
+    border: 1px solid var(--borde);
+    background: transparent;
+    color: var(--文字主);
+}
+
+.模态按钮:hover {
+    background: var(--背景三);
+}
+
+.模态按钮.首要 {
+    background: var(--点缀);
+    color: #0f172a;
+    border-color: var(--点缀);
+}
+
+.模态按钮.首要:hover {
+    background: var(--点缀hover);
+}
+
+.模态按钮.危险 {
+    background: var(--peligro);
+    color: #fff;
+    border-color: var(--peligro);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+    .导航链接 {
+        display: none;
+    }
+    
+    .导航内容 {
+        padding: 12px 16px;
+    }
+    
+    .主内容 {
+        padding: 32px 16px;
+    }
+    
+    .门框 {
+        width: 160px;
+        height: 260px;
+    }
+    
+    .chatSoporte {
+        width: calc(100vw - 32px);
+        right: 16px;
+        bottom: 16px;
+    }
+    
+    .奖品contenido {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .模态 {
+        padding: 24px;
+    }
+}

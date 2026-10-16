@@ -3,157 +3,201 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>开门模拟器 🚪 - 最好的开门网站!!!</title>
-    <link rel="stylesheet" href="样式.css">
+    <title>开门模拟器 · DoorTech™</title>
+    <link rel="stylesheet" href="样式/主要.css">
 </head>
 <body>
 
-    <!-- ========== BARRA SUPERIOR MEGA SATURADA ========== -->
-    <div class="顶部横幅">
-        <marquee scrollamount="8" behavior="alternate">
-            🎉🎉🎉 欢迎来到 开门模拟器!!! 全宇宙最好的开门网站!!! 现在注册就送 100 个门!!! 🎉🎉🎉
-        </marquee>
-    </div>
-
-    <!-- ========== HEADER CON LOGO Y IDIOMAS ========== -->
-    <header class="头部">
-        <div class="logo区">
-            <span class="logo">🚪</span>
-            <div>
-                <h1 data-i18n="titulo">开门模拟器</h1>
-                <p class="副标题" data-i18n="subtitulo">你只是想开个门。就这么简单。</p>
+    <!--HEADER  -->
+    <header class="顶部导航">
+        <div class="导航内容">
+            <div class="品牌" id="品牌">
+                <span class="品牌图标">🚪</span>
+                <span class="品牌名称" data-i18n="marca">开门模拟器</span>
+                <span class="品牌标记">™</span>
             </div>
-        </div>
 
-        <div class="idiomas">
-            <button class="语言按钮" data-lang="zh">🇨🇳 中文</button>
-            <button class="语言按钮" data-lang="es">🇪🇸 Español</button>
-            <button class="语言按钮" data-lang="en">🇬🇧 English</button>
+            <nav class="导航链接">
+                <a href="#" id="链接文档" data-i18n="navDocs">文档</a>
+                <a href="#" id="链接价格" data-i18n="navPricing">价格</a>
+                <a href="#" id="链接关于" data-i18n="navAbout">关于</a>
+            </nav>
+
+            <div class="导航右侧">
+                <div class="语言选择器">
+                    <button class="语言按钮" id="语言按钮">
+                        🌐 <span id="当前语言">中文</span>
+                    </button>
+                    <div class="语言菜单" id="语言菜单">
+                        <button class="语言选项" data-lang="zh">🇨🇳 中文</button>
+                        <button class="语言选项" data-lang="es">🇪🇸 Español</button>
+                        <button class="语言选项" data-lang="en">🇬🇧 English</button>
+                        <div class="语言分隔线"></div>
+                        <button class="语言选项 语言预mium" data-lang="ru" disabled>🇷🇺 Русский 🔒</button>
+                        <button class="语言选项 语言预mium" data-lang="ja" disabled>🇯🇵 日本語 🔒</button>
+                        <button class="语言选项 语言预mium" data-lang="pt" disabled>🇵🇹 Português 🔒</button>
+                        <button class="语言选项 语言预mium" data-lang="wenyan" disabled>📜 文言文 🔒</button>
+                    </div>
+                </div>
+                <button class="登录按钮" id="登录按钮" data-i18n="navLogin">登录</button>
+            </div>
         </div>
     </header>
 
-    <!-- ========== BANNER PUBLICITARIO 1 ========== -->
-    <div class="广告横幅 广告1">
-        <span class="广告文字" data-i18n="anuncio1">💰 你赢了 100 万!!! 点击领取!!!</span>
-        <button class="广告按钮" onclick="noHaceNada()" data-i18n="reclamar">立即领取</button>
-    </div>
+    <!-- BANNER -->
+    <section class="广告banner" id="广告banner1">
+        <div class="广告内容">
+            <span class="广告标签" data-i18n="publicidad">AD</span>
+            <p class="广告文字" data-i18n="banner1Texto">
+                用开门模拟器, 开门速度提升 300%
+            </p>
+            <a href="#" class="广告cta" id="广告cta1" data-i18n="probarGratis">免费试用 →</a>
+        </div>
+    </section>
 
-    <!-- ========== LAYOUT PRINCIPAL (3 COLUMNAS) ========== -->
-    <div class="主布局">
+    <!-- PRINCIPAL -->
+    <main class="主内容">
 
-        <!-- ----- COLUMNA IZQUIERDA: anuncios ----- -->
-        <aside class="侧边栏 左栏">
-            <div class="小广告 闪烁">
-                <p data-i18n="anuncioL1">🔥 热水!!!</p>
-                <p class="小字">100°C · 包邮</p>
-            </div>
-            <div class="小广告">
-                <p data-i18n="anuncioL2">🥢 筷子 50% OFF</p>
-                <p class="小字" data-i18n="anuncioL2b">买一送一!!!</p>
-            </div>
-            <div class="小广告 闪烁">
-                <p data-i18n="anuncioL3">🐱 会编程的猫</p>
-                <p class="小字" data-i18n="anuncioL3b">月薪 5000 起</p>
-            </div>
-        </aside>
+        <!--HERO -->
+        <section class="主角区">
+            <h1 class="主标题" data-i18n="heroTitulo">你只是想开个门。</h1>
+            <p class="主副标题" data-i18n="heroSubtitulo">
+                就这么简单。真的。
+            </p>
 
-        <!-- ----- COLUMNA CENTRAL: LA PUERTA ----- -->
-        <main class="主区域">
-
-            <!-- Contador de visitas ridículo -->
-            <div class="访客计数器">
-                <span data-i18n="visitas">你是第</span>
-                <span class="数字" id="访客数">999999</span>
-                <span data-i18n="visitasFin">位访客!!!</span>
-            </div>
-
-            <!-- Reloj random -->
-            <div class="随机时钟" id="随机时钟">
-                🕐 --:--:--
-            </div>
-
-            <!-- LA PUERTA -->
-            <div class="门框">
+            <div class="门框" id="门框">
                 <div class="门" id="门">
                     <div class="门把手"></div>
                     <div class="门牌">出</div>
                 </div>
             </div>
 
-            <button class="开门按钮" id="开门按钮" data-i18n="botonAbrir">
-                🚪 点击开门
+            <button class="主按钮" id="开门按钮" data-i18n="botonAbrir">
+                点击开门
             </button>
 
-            <p class="提示" id="提示" data-i18n="pista">门就在那里。它在等你。</p>
+            <p class="提示文字" id="提示文字" data-i18n="pista">
+                门就在那里。它在等你。
+            </p>
+        </section>
 
-        </main>
-
-        <!-- ----- COLUMNA DERECHA: más mierda ----- -->
-        <aside class="侧边栏 右栏">
-            <div class="小广告 闪烁">
-                <p data-i18n="anuncioR1">📢 订阅我们的</p>
-                <p class="小字" data-i18n="anuncioR1b">超级无敌新闻</p>
+        <!--FEATURES "STARTUP" -->
+        <section class="特性区">
+            <h2 class="区块标题" data-i18n="caracteristicas">为什么选择我们?</h2>
+            <div class="特性网格">
+                <div class="特性卡片">
+                    <div class="特性图标">⚡</div>
+                    <h3 data-i18n="feat1Titulo">极速</h3>
+                    <p data-i18n="feat1Texto">业界领先的开门速度, 平均只需 3-7 个工作日。</p>
+                </div>
+                <div class="特性卡片">
+                    <div class="特性图标">🔒</div>
+                    <h3 data-i18n="feat2Titulo">安全</h3>
+                    <p data-i18n="feat2Texto">军事级加密。您的门把手信息绝不会泄露。</p>
+                </div>
+                <div class="特性卡片">
+                    <div class="特性图标">🌍</div>
+                    <h3 data-i18n="feat3Titulo">全球</h3>
+                    <p data-i18n="feat3Texto">支持 3 种语言! 更多语言即将推出 (需付费)。</p>
+                </div>
             </div>
-            <div class="小广告">
-                <p data-i18n="anuncioR2">🐟 鱼</p>
-                <p class="小字" data-i18n="anuncioR2b">新鲜 · 会游泳</p>
+        </section>
+
+        <!-- ===== phoneAd -->
+        <section class="奖品banner" id="奖品banner">
+            <div class="奖品contenido">
+                <span class="奖品icono">🎁</span>
+                <div class="奖品文本o">
+                    <h3 data-i18n="premioTitulo">恭喜! 您被选中了!</h3>
+                    <p data-i18n="premioTexto">赢得一部全新的 iPhone 17 Pro Max!</p>
+                </div>
+                <button class="奖品按钮" id="奖品按钮" data-i18n="reclamar">
+                    立即领取
+                </button>
             </div>
-            <div class="小广告 闪烁">
-                <p data-i18n="anuncioR3">🎁 免费礼物</p>
-                <p class="小字" data-i18n="anuncioR3b">只限今天!!!</p>
+        </section>
+
+        <!-- 2ads -->
+        <section class="广告banner 广告banner2" id="广告banner2">
+            <div class="广告内容">
+                <span class="广告标签" data-i18n="publicidad">AD</span>
+                <p class="广告文字" data-i18n="banner2Texto">
+                    DoorTech Pro™ — 每月仅需 ¥99, 解锁开门的高级功能
+                </p>
+                <a href="#" class="广告cta" id="广告cta2" data-i18n="suscribirse">订阅 →</a>
             </div>
-        </aside>
+        </section>
 
-    </div>
+    </main>
 
-    <!-- ========== BARRA DE BOTONES RANDOM ========== -->
-    <div class="按钮群">
-        <button class="随机按钮" onclick="noHaceNada()" data-i18n="btn1">点击这里</button>
-        <button class="随机按钮" onclick="noHaceNada()" data-i18n="btn2">不要点击</button>
-        <button class="随机按钮" onclick="noHaceNada()" data-i18n="btn3">秘密按钮</button>
-        <button class="随机按钮" onclick="noHaceNada()" data-i18n="btn4">点我</button>
-        <button class="随机按钮" onclick="noHaceNada()" data-i18n="btn5">免费WiFi</button>
-        <button class="随机按钮" onclick="noHaceNada()" data-i18n="btn6">不要点我</button>
-        <button class="随机按钮" onclick="noHaceNada()" data-i18n="btn7">重要!!!</button>
-        <button class="随机按钮" onclick="noHaceNada()" data-i18n="btn8">了解更多</button>
-    </div>
-
-    <!-- ========== FOOTER SATURADO ========== -->
+    <!-- FOOTER -->
     <footer class="底部">
-        <div class="footer链接">
-            <a href="#" onclick="noHaceNada(); return false;" data-i18n="footer1">关于我们</a>
-            <a href="#" onclick="noHaceNada(); return false;" data-i18n="footer2">联系方式</a>
-            <a href="#" onclick="noHaceNada(); return false;" data-i18n="footer3">隐私政策</a>
-            <a href="#" onclick="noHaceNada(); return false;" data-i18n="footer4">服务条款</a>
-            <a href="#" onclick="noHaceNada(); return false;" data-i18n="footer5">加入我们</a>
+        <div class="底部内容">
+            <div class="底部列">
+                <h4 data-i18n="footerProducto">产品</h4>
+                <a href="#" data-i18n="footerFeatures">功能</a>
+                <a href="#" data-i18n="footerPricing">价格</a>
+                <a href="#" data-i18n="footerChangelog">更新日志</a>
+            </div>
+            <div class="底部列">
+                <h4 data-i18n="footerEmpresa">公司</h4>
+                <a href="#" data-i18n="footerAbout">关于</a>
+                <a href="#" data-i18n="footerBlog">博客</a>
+                <a href="#" data-i18n="footerCareers">招聘</a>
+            </div>
+            <div class="底部列">
+                <h4 data-i18n="footerLegal">法律</h4>
+                <a href="#" id="链接Terminos" data-i18n="footerTerms">服务条款</a>
+                <a href="#" id="链接Privacidad" data-i18n="footerPrivacy">隐私政策</a>
+                <a href="#" id="链接Cookies" data-i18n="footerCookies">Cookies</a>
+            </div>
+            <div class="底部列">
+                <h4 data-i18n="footerComunidad">社区</h4>
+                <a href="https://github.com/YonaZakkart" target="_blank">GitHub</a>
+                <a href="https://github.com/YonaZakkart/door-opening-simulator" target="_blank" data-i18n="footerRepo">Repository</a>
+                <a href="#" data-i18n="footerSupport">Support</a>
+            </div>
         </div>
-        <p class="版权" data-i18n="copyright">© 2025 开门模拟器 · 筷子许可证 🥢 · 版权所有 (但我们也不知道版权是什么)</p>
-        <p class="警告" data-i18n="aviso">⚠️ 开门可能需要 3-7 个工作日</p>
-        <p class="小鱼">🐟 <span data-i18n="pez">一条鱼正在看着你</span> 🐟</p>
+        <div class="底部Inferior">
+            <p data-i18n="copyright">© 2025 DoorTech™ · 保留所有权利</p>
+            <p class="底部Aviso" data-i18n="avisoLegal">
+                开门可能需要 3-7 个工作日。结果可能因门而异。
+            </p>
+        </div>
     </footer>
 
-    <!-- ========== POPUPS ALEATORIOS (ocultos por defecto) ========== -->
-    <div class="弹出广告" id="弹出广告">
-        <button class="关闭按钮" onclick="cerrarPopup()">✕</button>
-        <h3 data-i18n="popupTitulo">🎉 恭喜你!!!</h3>
-        <p data-i18n="popupTexto">你中了 100 万!!! 但需要先开门。</p>
-        <button class="弹出按钮" onclick="cerrarPopup()" data-i18n="popupBtn">好的好的</button>
-    </div>
-
-    <!-- ========== CHAT DE SOPORTE ========== -->
+    <!-- CHAT SUPPORT -->
     <div class="chatSoporte" id="chatSoporte">
-        <div class="chatHeader">
-            <span>💬 <span data-i18n="chatTitulo">在线客服</span></span>
-            <button onclick="toggleChat()">—</button>
+        <div class="chatHeader" id="chatHeader">
+            <span>💬 <span data-i18n="chatTitulo">客服支持</span></span>
+            <button class="chatToggle" id="chatToggle">—</button>
         </div>
-        <div class="chatMensajes" id="chatMensajes">
-            <div class="mensaje bot">
-                <span data-i18n="chatHola">你好！我能帮你开门吗？</span>
+        <div class="chatCuerpo" id="chatCuerpo">
+            <div class="chatMensajes" id="chatMensajes">
+                <div class="mensaje bot" data-i18n="chatMensaje1">
+                    你好! 有什么可以帮您?
+                </div>
+                <div class="mensaje bot" data-i18n="chatMensaje2">
+                    服务当前不可用。
+                </div>
             </div>
+            <input class="chatInput" id="chatInput" type="text" 
+                   placeholder="..." data-i18n-placeholder="chatPlaceholder">
         </div>
-        <input class="chatInput" id="chatInput" type="text" placeholder="..." data-i18n-placeholder="chatPlaceholder">
     </div>
 
-    <script src="开门.js"></script>
+    <!--MODALS=-->
+    <div class="模态覆盖" id="模态覆盖"></div>
+    <div class="模态容器" id="模态容器"></div>
+
+    <!--SCRIPTS -->
+    <script src="脚本/语言.js"></script>
+    <script src="脚本/门.js"></script>
+    <script src="脚本/登录.js"></script>
+    <script src="脚本/奖品.js"></script>
+    <script src="脚本/广告.js"></script>
+    <script src="脚本/聊天.js"></script>
+    <script src="脚本/主要.js"></script>
+
 </body>
 </html>
