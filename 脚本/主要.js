@@ -33,6 +33,15 @@ async function 启动() {
     // 9. ⚠️ NO auto-abrir login, solo interceptar triggers
     console.log("[主要] 启动完成。当前语言:", 语言.获取当前语言());
     console.log("[主要] 🔒 会话 cerrada. Login requerido para jugar.");
+
+    // 9? Inicializar premio
+    奖品.初始化奖品();       // 👈 NUEVO
+
+    // 10. Bindear trigger del premio
+    // (⚠️ Ya está bindeado desde 登录.绑定登录触发, pero por si acaso:)
+    // 奖品.绑定奖品触发();  // NO, porque 登录.js ya lo hace
+
+    console.log("[主要] 启动完成。");
 }
 
 function 绑定语言事件() {

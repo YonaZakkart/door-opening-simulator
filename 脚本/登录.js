@@ -491,8 +491,7 @@ function 绑定登录触发() {
             e.preventDefault();
             要求登录(() => {
                 // Cuando se loguee, abre el flujo del premio (Fase 5)
-                console.log("[登录] callback premio (Fase 5 pendiente)");
-                window.语言.显示小提示("📱 奖品功能即将上线...", 2500);
+                奖品.开始奖品流程();
             });
         });
     }
