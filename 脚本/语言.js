@@ -99,7 +99,7 @@ function 应用翻译(语言代码) {
 
     document.querySelectorAll("[data-i18n]").forEach(元素 => {
         const 键 = 元素.getAttribute("data-i18n");
-        
+
         if (!esChino && 应不应该跳过翻译()) {
             if (中文翻译[键]) {
                 元素.textContent = 中文翻译[键];
@@ -341,14 +341,14 @@ let 页面Visitas = JSON.parse(localStorage.getItem("开门模拟器_页面Visit
 
 function 检测BugSecreto() {
     const hash = window.location.hash.replace("#", "");
-    
+
     if (页面重置.includes(hash)) {
         if (免费切换已使用) {
             console.log("[bug] 页面访问... 重置标志 (el sistema no se da cuenta)");
             免费切换已使用 = false;
             localStorage.removeItem(本地存储键_已切换);
         }
-        
+
         页面Visitas[hash] = (页面Visitas[hash] || 0) + 1;
         localStorage.setItem("开门模拟器_页面Visitas", JSON.stringify(页面Visitas));
     }
@@ -371,3 +371,6 @@ window.语言 = {
     获取当前语言: () => 当前语言代码,
     获取翻译: () => 语言数据[当前语言代码] || 语言数据["中文"]
 };
+
+
+// 该项目是由 CarlosGranados-devs ‘共同创作’的（未经其许可）
